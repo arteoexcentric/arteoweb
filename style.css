@@ -1,0 +1,279 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #D9B991;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+.navbar {
+  display: flex;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 0 0 20px 20px;
+  padding: 15px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  color: #260101;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #fff;
+}
+
+.navbar a:active {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+/* WELCOME */
+.welcome-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.welcome-title {
+  font-size: 3em;
+  color: #260101;
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.glass-btn {
+  margin-top: 20px;
+  padding: 15px 35px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  color: #260101;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.glass-btn:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* OVERLAY ABOUT */
+.about-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(25px);
+  border-radius: 30px;
+  overflow: hidden;
+  transition: all 0.8s ease;
+  opacity: 0;
+  z-index: 5;
+}
+
+.about-overlay.active {
+  width: 80vw;
+  height: 80vh;
+  opacity: 1;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 20px;
+  padding: 20px;
+}
+
+.arteo-title {
+  font-size: 2.5em;
+  color: #260101;
+  font-weight: 700;
+}
+
+.user-text {
+  width: 80%;
+  height: auto;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 1.1em;
+  color: #260101;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.back-btn {
+  margin-top: 10px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.3);
+  color: #260101;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* OVERLAY LOGO */
+.logo-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(25px);
+  border-radius: 30px;
+  overflow: hidden;
+  transition: all 0.8s ease;
+  opacity: 0;
+  z-index: 6;
+}
+
+.logo-overlay.active {
+  width: 60vw;
+  height: 60vh;
+  opacity: 1;
+}
+
+.logo-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 20px;
+  padding: 20px;
+}
+
+.logo-img {
+  max-width: 300px;
+  max-height: 300px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.3);
+  animation: fadeIn 1s ease forwards;
+}
+
+/* ANIMASI */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* FLIP MEMBER */
+.member-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex; /* awalnya aktif */
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* tidak terlihat */
+  pointer-events: none; /* tidak bisa diklik */
+  z-index: 50;
+}
+
+.member-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+.member-content {
+  background: #8e6d4d;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+
+/* Flip Card */
+.flip-container {
+  width: 250px;
+  height: 350px;
+  perspective: 1000px;
+  margin: 20px auto;
+}
+
+.flipper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-container.flip .flipper {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.front img,
+.back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
