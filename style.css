@@ -94,6 +94,7 @@ body {
   overflow: hidden;
   transition: all 0.8s ease;
   opacity: 0;
+  pointer-events: none;
   z-index: 5;
 }
 
@@ -169,6 +170,7 @@ body {
   width: 60vw;
   height: 60vh;
   opacity: 1;
+  pointer-events: auto;
 }
 
 .logo-content {

@@ -71,3 +71,43 @@ document.querySelectorAll('.flip-container').forEach(card => {
     card.classList.toggle('flip');
   });
 });
+
+
+// Fungsi untuk menutup semua overlay
+function closeAllOverlays() {
+  document.getElementById('aboutOverlay').classList.remove('active');
+  document.getElementById('logoOverlay').classList.remove('active');
+  document.getElementById('memberOverlay').classList.remove('active');
+}
+
+// Logo button - tutup overlay lain dulu
+document.getElementById('logo-btn').addEventListener('click', function(e) {
+  e.preventDefault();
+  closeAllOverlays(); // Tutup semua dulu
+  document.getElementById('logoOverlay').classList.add('active');
+});
+
+// Member button - tutup overlay lain dulu
+document.getElementById('member-btn').addEventListener('click', function(e) {
+  e.preventDefault();
+  closeAllOverlays(); // Tutup semua dulu
+  document.getElementById('memberOverlay').classList.add('active');
+});
+
+// About button - tutup overlay lain dulu
+document.getElementById('about-btn').addEventListener('click', function(e) {
+  e.preventDefault();
+  closeAllOverlays(); // Tutup semua dulu
+  document.getElementById('aboutOverlay').classList.add('active');
+});
+
+// Home button - tutup semua overlay
+document.getElementById('home-btn').addEventListener('click', function(e) {
+  e.preventDefault();
+  closeAllOverlays();
+});
+
+// Close buttons
+document.getElementById('closeAboutBtn').addEventListener('click', closeAllOverlays);
+document.getElementById('closeLogoBtn').addEventListener('click', closeAllOverlays);
+document.getElementById('closeMemberBtn').addEventListener('click', closeAllOverlays);
