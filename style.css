@@ -286,3 +286,50 @@ h1 {
 a {
   color: #d9b991;
 }
+
+
+
+
+/* Landscape mode untuk HP */
+@media (max-width: 768px) and (orientation: landscape) {
+  section {
+    min-height: auto;
+    padding: 4rem 1rem 2rem;
+  }
+
+  .welcome-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .arteo-title, .member-title, .doc-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Untuk layar sangat kecil */
+@media (max-width: 360px) {
+  .welcome-title {
+    font-size: 1.5rem;
+  }
+
+  .arteo-title, .member-title, .doc-title {
+    font-size: 1.4rem;
+  }
+
+  .navbar a {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.4rem;
+  }
+
+  .glass-btn {
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .flip-container {
+    height: 280px;
+    max-width: 250px;
+  }
+}
