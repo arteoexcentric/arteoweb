@@ -1,73 +1,62 @@
-const openBtn = document.getElementById('openAboutBtn');
-const closeBtn = document.getElementById('closeAboutBtn');
-const overlay = document.getElementById('aboutOverlay');
-
-const logoBtn = document.getElementById('logo-btn');
-const logoOverlay = document.getElementById('logoOverlay');
-const closeLogoBtn = document.getElementById('closeLogoBtn');
-
-const memberBtn = document.getElementById('member-btn');
-const memberOverlay = document.getElementById('memberOverlay');
-const closeMemberBtn = document.getElementById('closeMemberBtn');
-
-const docBtn = document.getElementById('doc-btn');
-const aboutBtn = document.getElementById('about-btn');
-const homeBtn = document.getElementById('home-btn');
-
-
-// ABOUT
-openBtn?.addEventListener('click', () => {
-  overlay.classList.add('active');
-});
-
-closeBtn?.addEventListener('click', () => {
-  overlay.classList.remove('active');
-});
-
-
-// LOGO
-logoBtn?.addEventListener('click', () => {
-  logoOverlay.classList.add('active');
-});
-
-closeLogoBtn?.addEventListener('click', () => {
-  logoOverlay.classList.remove('active');
-});
-
-
-// ABOUT via navbar
-aboutBtn?.addEventListener('click', () => {
-  overlay.classList.add('active');
-});
-
-
-// MEMBER
-memberBtn?.addEventListener('click', () => {
-  memberOverlay.classList.add('active');
-});
-
-closeMemberBtn?.addEventListener('click', () => {
-  memberOverlay.classList.remove('active');
-});
-
-
-// DOCUMENTARY
-docBtn?.addEventListener('click', () => {
-  alert("Bagian ini nanti menampilkan dokumentasi 🎬");
-});
-
-
-// HOME
-homeBtn?.addEventListener('click', () => {
-  overlay.classList.remove('active');
-  logoOverlay.classList.remove('active');
-  memberOverlay.classList.remove('active');
-});
-
-
-// CARD FLIP
-document.querySelectorAll('.flip-container').forEach(card => {
-  card.addEventListener('click', () => {
-    card.classList.toggle('flip');
+// Smooth scrolling untuk semua link navigasi
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
   });
 });
+
+// Highlight active navigation item saat scroll
+window.addEventListener('scroll', () => {
+  let current = '';
+  const sections = document.querySelectorAll('section');
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    if (scrollY >= (sectionTop - 100)) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  document.querySelectorAll('.navbar a').forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${current}`) {
+      link.classList.add('active');
+    }
+  });
+});
+
+// Optional: Tambahkan efek fade in saat scroll ke section
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, observerOptions);
+
+// Observe semua sections
+document.querySelectorAll('section').forEach(section => {
+  section.style.opacity = '0';
+  section.style.transform = 'translateY(20px)';
+  section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(section);
+});
+
+// Set home section langsung visible
+document.getElementById('home').style.opacity = '1';
+document.getElementById('home').style.transform = 'translateY(0)';

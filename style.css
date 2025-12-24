@@ -1,265 +1,188 @@
-body {
+/* Reset & Base Styles */
+* {
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
-  background-color: #D9B991;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #250101;
+  color: #fff;
   overflow-x: hidden;
 }
 
-/* HEADER */
+/* Navbar Styles */
 .navbar {
-  display: flex;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
-  border-radius: 0 0 20px 20px;
-  padding: 15px 0;
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 10;
+  background: #d9b991;
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 1rem 0;
 }
 
 .navbar ul {
-  list-style: none;
   display: flex;
-  gap: 40px;
-  margin: 0;
-  padding: 0;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
 }
 
 .navbar a {
-  color: #260101;
+  color: #fff;
   text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  font-weight: 500;
+  transition: color 0.3s;
+  padding: 0.5rem 1rem;
 }
 
 .navbar a:hover {
-  color: #fff;
+  color: #250101;
 }
 
-.navbar a:active {
-  transform: scale(0.95);
-  opacity: 0.8;
+.navbar a.active {
+  color: #250101;
+  border-bottom: 2px solid #250101;
 }
 
-/* WELCOME */
-.welcome-container {
-  height: 100vh;
+/* Section Styles */
+section {
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem 2rem;
+  scroll-margin-top: 60px;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Home Section */
+#home {
+  background: #250101;
+  flex-direction: column;
   text-align: center;
 }
 
 .welcome-title {
-  font-size: 3em;
-  color: #260101;
-  opacity: 0;
-  animation: fadeIn 1.5s ease forwards;
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease;
 }
 
 .glass-btn {
-  margin-top: 20px;
-  padding: 15px 35px;
-  font-size: 1.1em;
-  border: none;
-  border-radius: 20px;
   background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(20px);
-  color: #260101;
-  font-weight: 600;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  color: #fff;
+  border-radius: 50px;
   cursor: pointer;
-  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s;
 }
 
 .glass-btn:hover {
-  transform: scale(1.05);
   background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
 }
 
-/* OVERLAY ABOUT */
-.about-overlay {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(25px);
-  border-radius: 30px;
-  overflow: hidden;
-  transition: all 0.8s ease;
-  opacity: 0;
-  z-index: 5;
-}
-
-.about-overlay.active {
-  width: 80vw;
-  height: 80vh;
-  opacity: 1;
-}
-
-.about-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  gap: 20px;
-  padding: 20px;
+/* About Section */
+#about {
+  background: #250101;
 }
 
 .arteo-title {
-  font-size: 2.5em;
-  color: #260101;
-  font-weight: 700;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .user-text {
-  width: 80%;
-  height: auto;
-  border-radius: 20px;
-  padding: 20px;
-  font-size: 1.1em;
-  color: #260101;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(10px);
+  font-size: 1.2rem;
+  line-height: 1.8;
   text-align: center;
-  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.back-btn {
-  margin-top: 10px;
-  padding: 10px 25px;
-  border: none;
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.3);
-  color: #260101;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.back-btn:hover {
-  background: rgba(255, 255, 255, 0.5);
-}
-
-/* OVERLAY LOGO */
-.logo-overlay {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(25px);
-  border-radius: 30px;
-  overflow: hidden;
-  transition: all 0.8s ease;
-  opacity: 0;
-  z-index: 6;
-}
-
-.logo-overlay.active {
-  width: 60vw;
-  height: 60vh;
-  opacity: 1;
+/* Logo Section */
+#logo {
+  background: #250101;
+  flex-direction: column;
 }
 
 .logo-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  gap: 20px;
-  padding: 20px;
+  text-align: center;
 }
 
 .logo-img {
-  max-width: 300px;
-  max-height: 300px;
-  border-radius: 20px;
-  box-shadow: 0 0 25px rgba(0,0,0,0.3);
-  animation: fadeIn 1s ease forwards;
-}
-
-/* ANIMASI */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* FLIP MEMBER */
-.member-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
+  max-width: 400px;
   width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex; /* awalnya aktif */
-  justify-content: center;
-  align-items: center;
-  opacity: 0; /* tidak terlihat */
-  pointer-events: none; /* tidak bisa diklik */
-  z-index: 50;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
 }
 
-.member-overlay.active {
-  opacity: 1;
-  pointer-events: auto;
+.logo-content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-
-.member-content {
-  background: #8e6d4d;
-  padding: 20px;
-  border-radius: 15px;
-  max-width: 900px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
+/* Member Section */
+#member {
+  background: #250101;
+  padding: 6rem 2rem 4rem;
 }
 
+.member-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
 
-/* Flip Card */
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .flip-container {
-  width: 250px;
-  height: 350px;
   perspective: 1000px;
-  margin: 20px auto;
+  height: 350px;
 }
 
 .flipper {
+  position: relative;
   width: 100%;
   height: 100%;
-  position: relative;
   transition: transform 0.6s;
   transform-style: preserve-3d;
 }
 
-.flip-container.flip .flipper {
+.flip-container:hover .flipper {
   transform: rotateY(180deg);
 }
 
 .front, .back {
+  position: absolute;
   width: 100%;
   height: 100%;
-  position: absolute;
   backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  border-radius: 10px;
+  border-radius: 15px;
   overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-.front img,
-.back img {
+.front img, .back img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -269,11 +192,97 @@ body {
   transform: rotateY(180deg);
 }
 
+/* Documentary Section */
+#documentary {
+  background: #250101;
+  text-align: center;
+}
 
-.card-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 20px;
+.doc-title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.doc-content {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.doc-content p {
+  margin-bottom: 1rem;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .welcome-title {
+    font-size: 2.5rem;
+  }
+
+  .arteo-title, .member-title, .doc-title {
+    font-size: 2rem;
+  }
+
+  .navbar ul {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .navbar a {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .card-wrapper {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .flip-container {
+    height: 300px;
+  }
+
+  .user-text, .logo-content p, .doc-content {
+    font-size: 1rem;
+  }
+
+  .glass-btn {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-title {
+    font-size: 2rem;
+  }
+
+  .arteo-title, .member-title, .doc-title {
+    font-size: 1.5rem;
+  }
+
+  .card-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* warna */
+h1 {
+  color:#d9b991
+}
+a {
+  color: #d9b991;
 }
