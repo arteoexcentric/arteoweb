@@ -11,8 +11,8 @@ html {
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #fff;
+  background: #250101;
+  color: #d9b991;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -23,7 +23,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: #d9b991;
   backdrop-filter: blur(10px);
   z-index: 1000;
   padding: 0.8rem 0;
@@ -39,7 +39,7 @@ body {
 }
 
 .navbar a {
-  color: #fff;
+  color: #250101;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
@@ -49,12 +49,12 @@ body {
 }
 
 .navbar a:hover {
-  color: #ffd700;
+  color: #fff;
 }
 
 .navbar a.active {
-  color: #ffd700;
-  border-bottom: 2px solid #ffd700;
+  color: #fff;
+  border-bottom: 2px solid #fff;
 }
 
 /* Section Styles */
@@ -74,7 +74,7 @@ section {
 
 /* Home Section */
 #home {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #250101;
   flex-direction: column;
   text-align: center;
 }
@@ -104,7 +104,7 @@ section {
 
 /* About Section */
 #about {
-  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  background: #250101;
 }
 
 .arteo-title {
@@ -123,7 +123,7 @@ section {
 
 /* Logo Section */
 #logo {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #250101;
   flex-direction: column;
 }
 
@@ -147,7 +147,7 @@ section {
 
 /* Member Section */
 #member {
-  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  background: #250101;
   padding: 6rem 2rem 4rem;
 }
 
@@ -204,7 +204,7 @@ section {
 
 /* Documentary Section */
 #documentary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #250101;
   text-align: center;
 }
 
@@ -487,4 +487,13 @@ section {
   section {
     padding: 4rem 0.5rem 1rem;
   }
+}
+
+/* warna */
+h1 {
+  color: #d9b991;
+}
+
+p {
+  color: #d9b991
 }
